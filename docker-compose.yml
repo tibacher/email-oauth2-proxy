@@ -1,0 +1,17 @@
+services:
+  email-oauth2-proxy:
+    build:
+      context: .
+    image: email-oauth2-proxy-python
+    container_name: email-oauth2-proxy
+    restart: unless-stopped
+    ports:
+      - "1993:1993"
+      - "1995:1995"
+      - "1587:1587"
+      - "2993:2993"
+      - "2995:2995"
+      - "2465:2465"
+    volumes:
+      - ./tcs_nwc.config:/app/emailproxy.config
+    command: ["python", "emailproxy.py", "--no-gui"]
