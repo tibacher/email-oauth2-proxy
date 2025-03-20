@@ -13,5 +13,5 @@ services:
       - "2995:2995"
       - "2465:2465"
     volumes:
-      - ./tcs_nwc.config:/app/emailproxy.config
+      - ./custom_emailproxy.config:/app/emailproxy.config
     command: ["python", "emailproxy.py", "--no-gui"]
